@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
-import "./App.scss";
+import './styles.scss';
+
 
 function App() {
   const [time, setTime] = useState(0);
@@ -8,7 +9,7 @@ function App() {
 
   const startTimer = () => {
     const id = setInterval(() => {
-      setTime(prevTime => prevTime + 10); // Zwiększamy o 10 milisekund (0.01 sekundy)
+      setTime(prevTime => prevTime + 10);
     }, 10);
     setIntervalId(id);
   };
@@ -31,11 +32,11 @@ function App() {
   }, [intervalId]);
 
   return (
-    <div>
+    <div className='box'>
       <Timer milliseconds={time} />
-      <button className="button" onClick={startTimer}>Start</button>
-      <button className="button" onClick={stopTimer}>Stop</button>
-      <button className="button" onClick={resetTimer}>Reset</button>
+      <button className="button" onClick={startTimer}>START</button>
+      <button className="button" onClick={stopTimer}>STOP</button>
+      <button className="button" onClick={resetTimer}>RESET</button>
     </div>
   );
 }
